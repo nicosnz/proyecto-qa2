@@ -1,0 +1,15 @@
+== CARGA
+fase                 n | API cpu prom API cpu max  API mem API mem max | PG cpu prom  PG max  PG mem PG procs |  k6 cpu  k6 mem | sist %
+reposo (antes)      14 |         0.1%        1.0%     44MB        44MB |        0.0%    0.0%    79MB        9 |    0.0%     0MB |   8.0%
+E50                120 |        37.7%       71.6%     64MB        76MB |        1.5%    4.0%   197MB       17 |    3.6%    65MB |  10.1%
+reposo (después)    15 |         0.1%        1.0%     75MB        75MB |        0.0%    0.0%   152MB       16 |    0.0%     0MB |   6.1%
+== ESTRÉS
+fase                 n | API cpu prom API cpu max  API mem API mem max | PG cpu prom  PG max  PG mem PG procs |  k6 cpu  k6 mem | sist %
+reposo (antes)      14 |         0.0%        0.0%     75MB        75MB |        0.0%    0.0%    82MB        9 |    0.0%     0MB |   7.4%
+E50                 44 |        39.0%       75.0%     77MB        78MB |        1.5%    3.0%   189MB       17 |    4.2%   200MB |  11.6%
+E100                45 |        61.5%       87.1%     79MB        80MB |        2.5%    4.9%   202MB       17 |    5.6%   215MB |   9.6%
+E200                45 |        93.3%      104.7%    105MB       107MB |        3.6%    8.9%   202MB       17 |    6.5%   236MB |  13.4%
+E300                45 |        96.9%      103.3%    158MB       162MB |        3.5%    8.8%   202MB       17 |    6.2%   274MB |  13.5%
+E400                44 |       100.4%      104.5%    163MB       165MB |        3.8%   10.9%   202MB       17 |    7.4%   293MB |  12.4%
+R50                 35 |        35.4%       74.1%    164MB       164MB |        1.5%    3.9%   183MB       17 |    3.5%   311MB |   7.8%
+reposo (después)    14 |         0.1%        1.0%    164MB       164MB |        0.0%    0.0%    93MB       12 |    0.0%     0MB |   5.7%

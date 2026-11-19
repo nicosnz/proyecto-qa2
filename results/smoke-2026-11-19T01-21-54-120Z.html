@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>k6 smoke</title><style>
+body{font-family:system-ui,sans-serif;max-width:980px;margin:24px auto;padding:0 16px;color:#1d2433;background:#fff}
+table{border-collapse:collapse;width:100%;margin:10px 0 24px}td,th{border-bottom:1px solid #e3e6ec;padding:6px 8px;text-align:left;font-size:.9rem}
+th{background:#f4f6fa}.ok{color:#137333}.ko{color:#b3261e;font-weight:600}</style></head><body>
+<h1>KPIs — smoke</h1><p>Flujo: login → GET categories → GET books · 2026-11-19T01:21:54.121Z</p>
+<h2>Indicadores</h2><table><tr><th>KPI</th><th>Valor</th><th>Objetivo</th></tr><tr><td>Duración</td><td>0.0 min</td><td></td></tr><tr><td>VUs máximos (socios concurrentes)</td><td>—</td><td></td></tr><tr><td>Sesiones (iteraciones)</td><td>3</td><td></td></tr><tr><td>Sesiones por minuto</td><td>502.2</td><td></td></tr><tr><td>Requests totales</td><td>18</td><td></td></tr><tr><td>Throughput</td><td>50.22 req/s</td><td></td></tr><tr><td>Tasa de error HTTP</td><td>0.00 %</td><td>&lt; 1.00 %</td></tr><tr><td>Checks OK</td><td>100.00 %</td><td>&gt; 99 %</td></tr><tr><td>Sesiones completas</td><td>100.00 %</td><td>&gt; 99.00 %</td></tr><tr><td>p95 sesión (sin pausas)</td><td>111 ms</td><td></td></tr><tr><td>Páginas de catálogo vistas</td><td>6</td><td></td></tr><tr><td>p95 global</td><td>90 ms</td><td></td></tr></table>
+<h2>Por endpoint</h2><table><tr><th>Endpoint</th><th>reqs</th><th>error</th><th>avg</th><th>med</th><th>p95</th><th>p99</th><th>max</th><th>SLO p95</th></tr>
+<tr><td>POST /auth/login</td><td>5</td><td>0.00 %</td><td>64 ms</td><td>68 ms</td><td>101 ms</td><td>104 ms</td><td>105 ms</td><td>&lt; 800 ms ✓</td></tr><tr><td>GET /categories</td><td>4</td><td>0.00 %</td><td>2 ms</td><td>3 ms</td><td>3 ms</td><td>3 ms</td><td>3 ms</td><td>&lt; 300 ms ✓</td></tr><tr><td>GET /books</td><td>8</td><td>0.00 %</td><td>2 ms</td><td>2 ms</td><td>3 ms</td><td>3 ms</td><td>3 ms</td><td>&lt; 300 ms ✓</td></tr></table>
+
+<h2>Umbrales</h2><table><tr><th></th><th>Métrica</th><th>Umbral</th></tr>
+<tr><td class="ok">✓</td><td>checks</td><td>rate==1</td></tr><tr><td class="ok">✓</td><td>sesiones_completas</td><td>rate==1</td></tr><tr><td class="ok">✓</td><td>http_req_failed{fase:prueba}</td><td>rate==0</td></tr></table>
+</body></html>

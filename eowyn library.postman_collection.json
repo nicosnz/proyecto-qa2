@@ -1,0 +1,647 @@
+{
+	"info": {
+		"_postman_id": "26e18be9-c811-4a6e-97c9-cd82ea413391",
+		"name": "eowyn library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47770263",
+		"_collection_link": "https://rsalazarherrera94-5515525.postman.co/workspace/Guido-Salazar's-Workspace~42e5741c-2c40-4726-8062-491a34506358/collection/47770263-26e18be9-c811-4a6e-97c9-cd82ea413391?action=share&source=collection_link&creator=47770263"
+	},
+	"item": [
+		{
+			"name": "Eowyn",
+			"item": [
+				{
+					"name": "user register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "emailValidated",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable('token', jsonResponse.token);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test12122121221",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnYW5kaUBnbWFpbC5jb20iLCJpYXQiOjE3NjI3NDU5NTgsImV4cCI6MTc2Mjc1MzE1OH0.7K-Ck3PgI-20gWCKDxft7H20kCwnotWUZbixuXFnev8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test 2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/categories/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnYW5kaUBnbWFpbC5jb20iLCJpYXQiOjE3NjI3NDU5NTgsImV4cCI6MTc2Mjc1MzE1OH0.7K-Ck3PgI-20gWCKDxft7H20kCwnotWUZbixuXFnev8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/api/categories/35",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/api/categories?limit=50",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnYW5kaUBnbWFpbC5jb20iLCJpYXQiOjE3NjIyMjY5ODksImV4cCI6MTc2MjIzNDE4OX0.6N3pJ6MX7e1GP2SsO0EoYDbuCVfIjbhAE4jTGP4xXsI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "tests",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "978-3-16-148410-0",
+									"type": "text"
+								},
+								{
+									"key": "publicationYear",
+									"value": "2023",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "totalQuantity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "availableQuantity",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/books",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnYW5kaUBnbWFpbC5jb20iLCJpYXQiOjE3NjI3NDU5NTgsImV4cCI6MTc2Mjc1MzE1OH0.7K-Ck3PgI-20gWCKDxft7H20kCwnotWUZbixuXFnev8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "tests",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "978-0-00-000002-2",
+									"type": "text"
+								},
+								{
+									"key": "publicationYear",
+									"value": "2023",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "totalQuantity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "availableQuantity",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/books/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnYW5kaUBnbWFpbC5jb20iLCJpYXQiOjE3NjI3NDU5NTgsImV4cCI6MTc2Mjc1MzE1OH0.7K-Ck3PgI-20gWCKDxft7H20kCwnotWUZbixuXFnev8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/api/books/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "tests",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/books?limit=30",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create loan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTc2MjgxOTk4OSwiZXhwIjoxNzYyODI3MTg5fQ.u_qCgOtyC0V-r4yP-QHQQv5zUadQRBCFaN_Wl3SOAmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "bookId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "dueDate",
+									"value": "2025-11-17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/loans",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"loans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "return loan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTc2MjgxOTk4OSwiZXhwIjoxNzYyODI3MTg5fQ.u_qCgOtyC0V-r4yP-QHQQv5zUadQRBCFaN_Wl3SOAmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "bookId",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "dueDate",
+									"value": "2025-11-17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/loans/:id/return",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"loans",
+								":id",
+								"return"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validateEmail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "gandi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/validate-email/ABC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"validate-email",
+								"ABC"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
